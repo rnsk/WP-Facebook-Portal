@@ -5,7 +5,7 @@ Plugin URI: http://wordpress.org/plugins/wp-facebook-portal/
 Description: Import the posts of Facebook page.
 Author: Yoshika (@rnsk)
 Author URI: http://rnsk.net/
-Version: 2.3.1
+Version: 2.3.2
 License: GPL2
 License URI: license.txt
 Text Domain: wpfb
@@ -38,7 +38,7 @@ class FacebookPortal
  *
  * @var string
  */
-    const VERSION = '2.3.1';
+    const VERSION = '2.3.2';
 
 /**
  * Plugin DB version

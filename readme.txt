@@ -3,8 +3,8 @@ Contributors: ryo-nosuke
 Donate link: http://rnsk.net/donate/
 Tags: Facebook, Facebook page, portal, feed
 Requires at least: 3.5.1
-Tested up to: 4.0.1
-Stable tag: 2.3.1
+Tested up to: 4.7.3
+Stable tag: 2.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,7 +38,7 @@ http://portal.aoiya.net/
 以下はこのプラグインのほか、私が制作している WordPress プラグインの情報を配信している Facebook ページです。  
 アップデート情報や対応状況、機能追加予定なども配信しているのでぜひ『いいね！』を押してください。
 
-https://www.facebook.com/pages/WordPress-Plugins/563277537040790
+https://www.facebook.com/rnsk.plugins/
 
 
 == Installation ==
@@ -65,13 +65,20 @@ for questions, answers, support and feature requests.
 
 == Changelog ==
 
+2.3.2  
+WordPress 4.7.3 に対応  
+Facebook API v.2.8 に対応  
+APIのバージョン変更に伴う修正
+記事自動取得の不具合を修正  
+記事リンクの不具合を修正  
+
 2.3.1  
 Facebook ページが投稿した記事のみ取得するよう修正  
 Facebook API v.2.2 に対応  
 WordPress 4.0.1 に対応  
 Modified to get only from Facebook page the posts.  
 Corresponded to the Facebook API v.2.2  
-Corresponded to the WordPress 4.0.1  
+Corresponded to the WordPress 4.0.1
 
 2.3  
 Facebook API v.2.1 に対応  
@@ -106,4 +113,3 @@ Facebook での投稿が1行の場合にタイトルが登録されないバグ�
 Facebook ページの削除後にメッセージが表示されないバグを修正
 
 そのほかWordPressデフォルトの機能を優先して使うことで処理をスムーズに行うようにしました。
-

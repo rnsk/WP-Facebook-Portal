@@ -142,11 +142,11 @@ class FacebookPortalApi
  */
     public function getAccessToken($config = array())
     {
-        if ($this->accessToken !== null) {
-            return $this->accessToken;
-        }
-
-        if (!empty($config)) {
+        if (empty($config)) {
+            if ($this->accessToken !== null) {
+                return $this->accessToken;
+            }
+        } else {
             $this->setConfig($config);
         }
 

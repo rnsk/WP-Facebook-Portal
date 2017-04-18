@@ -42,7 +42,7 @@ class FacebookPortalApi
  *
  * @var string
  */
-    public $postUrlFormat = 'https://www.facebook.com/%d/posts/%d';
+    public $postUrlFormat = 'https://www.facebook.com/%s/posts/%s';
 
 /**
  * Delimiter of the post ID and page ID

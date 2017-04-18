@@ -156,7 +156,12 @@ class FacebookPortalApi
             'grant_type' => 'client_credentials',
         );
         if ($response = $this->apiRequest('/oauth/access_token', $params)) {
-            parse_str($response, $result);
+            if (is_array($response)) {
+                $result = $response;
+            } else {
+                parse_str($response, $result);
+            }
+
             if (!empty($result['access_token'])) {
                 $this->setAccessToken($result['access_token']);
             }

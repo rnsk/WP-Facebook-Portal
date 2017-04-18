@@ -185,10 +185,13 @@ class FacebookPortalApi
             'access_token' => $this->getAccessToken()
         );
         $response = $this->apiRequest($path, $params);
-        if (!empty($response['picture']['data']['url'])) {
-            $response['picture'] = $response['picture']['data']['url'];
+        if (!empty($response['id'])) {
+            if (!empty($response['picture']['data']['url'])) {
+                $response['picture'] = $response['picture']['data']['url'];
+            }
+            return $response;
         }
-        return $response;
+        return false;
     }
 
 /**

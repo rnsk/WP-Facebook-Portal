@@ -35,7 +35,7 @@ class FacebookPortalApi
  *
  * @var string
  */
-    public $requestUrl = 'https://graph.facebook.com/v2.2';
+    public $requestUrl = 'https://graph.facebook.com/v2.8';
 
 /**
  * Facebook single post URL.

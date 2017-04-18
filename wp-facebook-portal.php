@@ -148,7 +148,7 @@ class FacebookPortal
 
         // Cron Job
         if (!wp_next_scheduled('wpfb_auto_update')) {
-            wp_schedule_event(time(), 'tenMinute', 'wpfb_auto_update');
+            wp_schedule_event(time(), '10min', 'wpfb_auto_update');
         }
     }
 
@@ -200,15 +200,15 @@ class FacebookPortal
 /**
  * Cron Interval
  *
+ * @param array $schedules Already set cron schedule
  * @return array
  */
-    public function cronInterval()
+    public function cronInterval($schedules)
     {
-        $params = array(
+        $schedules['10min'] = array(
             'interval' => 600,
-            'display'  => 'Every 10 Minutes'
+            'display'  => __('Every 10 Minutes')
         );
-        $schedules['tenMinute'] = $params;
         return $schedules;
     }
 

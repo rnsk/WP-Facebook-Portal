@@ -38,20 +38,6 @@ class FacebookPortalApi
     public $requestUrl = 'https://graph.facebook.com/v3.3';
 
 /**
- * Facebook single post URL.
- *
- * @var string
- */
-    public $postUrlFormat = 'https://www.facebook.com/%s/posts/%s';
-
-/**
- * Delimiter of the post ID and page ID
- *
- * @var string
- */
-    public $idDelimiter = '_';
-
-/**
  * Facebook Default Album
  *
  * @var string
@@ -208,7 +194,7 @@ class FacebookPortalApi
 
         $path = '/' . $page_id . '/posts';
         $params = array(
-            'fields' => 'id,message,created_time,type,link,object_id',
+            'fields' => 'id,message,created_time,permalink_url',
             'since' => $since,
             'until' => $until,
             'access_token' => $this->getAccessToken()
@@ -220,7 +206,7 @@ class FacebookPortalApi
                 if (empty($data['message'])) {
                     continue;
                 }
-                $response['data'][$i]['permalink'] = vsprintf($this->postUrlFormat, explode($this->idDelimiter, $response['data'][$i]['id']));
+                $response['data'][$i]['permalink'] = $data['permalink_url'];
                 $_data[] = $response['data'][$i];
             }
             $response = $_data;

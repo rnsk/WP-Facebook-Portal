@@ -194,7 +194,7 @@ class FacebookPortalApi
 
         $path = '/' . $page_id . '/posts';
         $params = array(
-            'fields' => 'id,message,created_time,permalink_url',
+            'fields' => 'id,message,created_time,permalink_url,full_picture,attachments{media_type}',
             'since' => $since,
             'until' => $until,
             'access_token' => $this->getAccessToken()
@@ -207,6 +207,7 @@ class FacebookPortalApi
                     continue;
                 }
                 $response['data'][$i]['permalink'] = $data['permalink_url'];
+                $response['data'][$i]['type'] = $data['attachments']['data'][0]['media_type'];
                 $_data[] = $response['data'][$i];
             }
             $response = $_data;

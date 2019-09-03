@@ -26,8 +26,8 @@
                     <tr>
                         <th>Facebook Access Token</th>
                         <td>
-                            <strong><?php echo $facebook_access_token_text; ?></strong>
-                            <input type="hidden" id="facebook_access_token" name="facebook_access_token" value="<?php echo $facebook_access_token; ?>">
+                            <strong><?php echo $facebook_access_token_text; ?></strong><br>
+                            <input type="text" id="facebook_access_token" name="facebook_access_token" value="<?php echo $facebook_access_token; ?>" class="regular-text code">
                         </td>
                     </tr>
                 </tbody>

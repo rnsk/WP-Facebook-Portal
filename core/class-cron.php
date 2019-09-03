@@ -93,14 +93,14 @@ class FacebookPortalCron
                         if ($_data = $this->Common->savePost($feed)) {
                             // 更新確認用タイムスタンプ
                             $created_time[] = $feed['timestamp'];
-                            if (($feed['type'] === 'photo') && (isset($feed['object_id']))) {
+                            if (isset($feed['full_picture'])) {
                                 // 添付画像の取り扱い設定がなければ処理をスキップ
                                 if (empty($result['image_type'])) {
                                     continue;
                                 }
 
                                 // 添付画像取得保存
-                                if ($photoUrls = $this->Facebook->getPhotoUrl($feed['object_id'])) {
+                                if ($photoUrls = [$feed['full_picture']]) {
                                     $attachment_ids = array();
                                     foreach ($photoUrls as $photoUrl) {
                                         if ($attachment_id = $this->Common->savePhoto($photoUrl, $_data['ID'], $_data['post_author'])) {

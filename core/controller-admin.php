@@ -514,14 +514,14 @@ class FacebookPortalAdmin
                     // 投稿保存
                     if ($_data = $this->Common->savePost($_post[$fb_post_id])) {
                         $post_ids[] = $_data['ID'];
-                        if (($_post[$fb_post_id]['type'] === 'photo') && (isset($_post[$fb_post_id]['object_id']))) {
+                        if (isset($_post[$fb_post_id]['full_picture'])) {
                             // 添付画像の取り扱い設定がなければ処理をスキップ
                             if (empty($_post[$fb_post_id]['image_type'])) {
                                 continue;
                             }
 
                             // 添付画像取得保存
-                            if ($photoUrls = $this->Facebook->getPhotoUrl($_post[$fb_post_id]['object_id'])) {
+                            if ($photoUrls = [$_post[$fb_post_id]['full_picture']]) {
                                 $attachment_ids = array();
                                 foreach ($photoUrls as $photoUrl) {
                                     if ($attachment_id = $this->Common->savePhoto($photoUrl, $_data['ID'], $_data['post_author'])) {

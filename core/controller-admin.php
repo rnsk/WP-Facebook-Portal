@@ -198,18 +198,20 @@ class FacebookPortalAdmin
                 $data = $_data;
             } else {
                 try {
-                    $config = array(
-                        'appId' => $_data['facebook_app_id'],
-                        'secret' => $_data['facebook_app_secret']
-                    );
-                    if (!$access_token = $this->Facebook->getAccessToken($config)) {
-                        throw new Exception(__('An access token was not able to be acquired.', FacebookPortal::TEXT_DOMAIN));
-                    } else {
-                        update_option(FacebookPortal::OPTION_FB_ACCESS_TOKEN, $access_token);
-                        update_option(FacebookPortal::OPTION_FB_APP_ID, $_data['facebook_app_id']);
-                        update_option(FacebookPortal::OPTION_FB_APP_SECRET, $_data['facebook_app_secret']);
-                        $this->View->setAlert(array(__('The access token was acquired.', FacebookPortal::TEXT_DOMAIN)), 'updated');
+                    $access_token = $_data['facebook_access_token'];
+                    if (empty($access_token)) {
+                        $config = array(
+                            'appId' => $_data['facebook_app_id'],
+                            'secret' => $_data['facebook_app_secret']
+                        );
+                        if (!$access_token = $this->Facebook->getAccessToken($config)) {
+                            throw new Exception(__('An access token was not able to be acquired.', FacebookPortal::TEXT_DOMAIN));
+                        }
                     }
+                    update_option(FacebookPortal::OPTION_FB_ACCESS_TOKEN, $access_token);
+                    update_option(FacebookPortal::OPTION_FB_APP_ID, $_data['facebook_app_id']);
+                    update_option(FacebookPortal::OPTION_FB_APP_SECRET, $_data['facebook_app_secret']);
+                    $this->View->setAlert(array(__('The access token was acquired.', FacebookPortal::TEXT_DOMAIN)), 'updated');
                 } catch(Exception $e) {
                     $this->View->setAlert(array($e->getMessage()), 'error');
                 }

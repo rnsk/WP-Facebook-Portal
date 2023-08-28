@@ -35,7 +35,7 @@ class FacebookPortalApi
  *
  * @var string
  */
-    public $requestUrl = 'https://graph.facebook.com/v3.3';
+    public $requestUrl = 'https://graph.facebook.com/v11.0';
 
 /**
  * Facebook Default Album

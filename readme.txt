@@ -1,10 +1,10 @@
 === WP Facebook Portal ===
 Contributors: ryo-nosuke
-Donate link: http://rnsk.net/donate/
+Donate link: https://github.com/rnsk/wp-facebook-portal
 Tags: Facebook, Facebook page, portal, feed
 Requires at least: 3.5.1
-Tested up to: 4.7.3
-Stable tag: 2.3.2
+Tested up to: 6.3
+Stable tag: 2.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,20 +26,25 @@ Facebook ページごとにインポートしたときの投稿カテゴリー�
 手動によるインポートにも対応しています。  
 ※ご利用には Facebook App ID　および App Secret が必要です。
 
-WP-Facebook-Portal の使い方  
-https://www.facebook.com/notes/WordPress-Plugins/564416630260214
+更新が滞っており申し訳ありません。  
+暫定的な対応として「Facebook Access Token」を手入力することで使用できるように修正しました。  
 
-Facebook ページID の確認方法  
-https://www.facebook.com/notes/WordPress-Plugins/564443710257506
+使い方は次のとおりです。
 
-デモサイト  
-http://portal.aoiya.net/
+1. Facebook developer のグラフAPIエクスプローラにアクセス
+2. Facebook アプリを選択し、ページアクセストークンを取得  
+    このとき、取得したいページを選択してページ投稿の読み取り権限がついていることを確認してください。
+3. 「Generate Access Token」ボタンをクリックする
+4. 表示されたアクセストークンをコピーする
+5. WP Facebook Portal の設定画面を表示する
+6. Facebook Access Token に先ほど生成したアクセストークンをペーストする
+7. 「アクセストークンを取得」ボタンをクリックする  
+    ここでは、新たに取得するのではなく、ペーストしたアクセストークンを保存します。
 
-以下はこのプラグインのほか、私が制作している WordPress プラグインの情報を配信している Facebook ページです。  
-アップデート情報や対応状況、機能追加予定なども配信しているのでぜひ『いいね！』を押してください。
+これで特定のFacebookページの投稿を読み込むことができます。  
+取得したいページを増やす場合は手順「2」で権限を付与してください。  
 
-https://www.facebook.com/rnsk.plugins/
-
+アクセストークンには期限がありますので、期限が切れたら再度上記のとおり設定することで引き続き利用できます。
 
 == Installation ==
 
@@ -64,6 +69,11 @@ for questions, answers, support and feature requests.
 
 
 == Changelog ==
+
+2.3.3
+WordPress 6.3 に対応  
+Facebook API v.11.0 に対応  
+Facebook Access Token が入力できるよう修正  
 
 2.3.2  
 WordPress 4.7.3 に対応  
